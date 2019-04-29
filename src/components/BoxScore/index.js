@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { FormattedMessage } from "react-intl";
+import { intlShape, injectIntl } from "react-intl";
 
 import {
   Container,
@@ -9,7 +11,11 @@ import {
   Button
 } from "./styles";
 
-export default class BoxScore extends Component {
+class BoxScore extends Component {
+  static propTypes = {
+    intl: intlShape.isRequired
+  };
+
   state = {
     box: []
   };
@@ -50,25 +56,29 @@ export default class BoxScore extends Component {
   };
 
   render() {
+    const intl = this.props.intl;
+    const placeholder = intl.formatMessage({
+      id: "feedbackPlaceholder"
+    });
     const { score } = this.props;
     if (typeof score !== "number")
       return <Container>{this.boxScore()}</Container>;
     else if (score <= 7) {
       return (
         <CustumerFeedbackContainer>
-          <CustumerFeedback
-            id="custumer_feedback"
-            autofocus
-            placeholder="Como podemos melhorar? (opcional)"
-          />
+          <CustumerFeedback id="custumer_feedback" placeholder={placeholder} />
           <ButtonContainer>
             <Button primary onClick={() => this.handleClickConfirm()}>
-              Enviar
+              <FormattedMessage id="buttonConfirm" />
             </Button>
-            <Button onClick={() => this.handleClickCancel()}>Cancelar</Button>
+            <Button onClick={() => this.handleClickCancel()}>
+              <FormattedMessage id="buttonCancel" />
+            </Button>
           </ButtonContainer>
         </CustumerFeedbackContainer>
       );
     }
   }
 }
+
+export default injectIntl(BoxScore);

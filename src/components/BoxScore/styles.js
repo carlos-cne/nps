@@ -99,6 +99,7 @@ export const CustumerFeedback = styled.textarea`
   border: 1px dashed #666;
   border-radius: 10px;
   resize: none;
+  padding: 5px;
   ::placeholder {
     color: #999;
     font-size: 16px;

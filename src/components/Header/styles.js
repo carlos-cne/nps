@@ -14,3 +14,16 @@ export const Title = styled.p`
   margin-top: 100px;
   margin-left: 80px;
 `;
+
+export const LanguageButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 10px;
+  img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+`;
