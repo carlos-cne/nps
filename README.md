@@ -11,3 +11,9 @@ Para internacionalização utilizei o artigo da [Maria Clara Santana](https://me
 Acesse a pasta do projeto e execute o comando `npm i` ou `yarn` (desde que estejam instalados em sua computador).
 Ao finalizar a instalação acesse execute o comando `npm start` ou `yarn start`.
 Deverá abrir uma página em seu navegador padrão.
+
+## Importante
+
+Neste teste não validei o Host e a porta, então precisa rodar na porta 3000.
+
+Ainda não tenho muito conhecimento com testes, então se rodar o comando para testes ele vai testar apenas se tem um componente chamado App.
